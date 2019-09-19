@@ -16,15 +16,20 @@ int postFix(std::string inputString){
 	std::stack<int> *theStack = new std::stack<int>();
 
 	for(int i = 0; i < inputString.size(); i++){
-		const char * currentChar = inputString[i];
 		if(inputString[i] == '+' ||
 		   inputString[i] == '-' ||
 		   inputString[i] == '*' ||
 		   inputString[i] == '/'){
 
+			int foo = theStack->top();
+			theStack->pop();
+			int bar = theStack->top();
+			theStack->pop();
+
+			
 		}
 		else{
-			theStack->push(std::atoi(currentChar));
+			theStack->push(std::atoi(&inputString[i]));
 		}
 	}
 }
