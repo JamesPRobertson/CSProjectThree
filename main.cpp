@@ -26,7 +26,8 @@ int postFix(std::string inputString){
 				int secondMulti = theStack->top();
 				theStack->pop();
 
-				return firstMulti * secondMulti;
+				theStack->push(firstMulti * secondMulti);
+				break;
 			}
 			case '/': {
 				int firstDiv = theStack->top();
@@ -34,7 +35,8 @@ int postFix(std::string inputString){
 				int secondDiv = theStack->top();
 				theStack->pop();
 
-				return firstDiv / secondDiv;
+				theStack->push(firstDiv / secondDiv);
+				break;
 			}
 			case '+': {
 				int firstAdd = theStack->top();
@@ -42,7 +44,8 @@ int postFix(std::string inputString){
 				int secondAdd = theStack->top();
 				theStack->pop();
 
-				return firstAdd + secondAdd;
+				theStack->push(firstAdd + secondAdd);
+				break;
 			}
 			case '-': {
 				int firstMin = theStack->top();
@@ -50,8 +53,11 @@ int postFix(std::string inputString){
 				int secondMin = theStack->top();
 				theStack->pop();
 
-				return firstMin  * secondMin;
+				theStack->push(firstMin - secondMin);
+				break;
 			}
 		}
 	}
+
+	return theStack->top();
 }
